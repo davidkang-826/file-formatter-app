@@ -335,7 +335,7 @@ def run_pipeline_main():
         st.markdown(
             """
             <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
-              📤 Step 6: Download!
+              📤 Step 6: Download Now!
             </p>
             """,
             unsafe_allow_html=True
