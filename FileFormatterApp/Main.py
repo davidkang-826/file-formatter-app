@@ -335,7 +335,7 @@ def run_pipeline_main():
         st.markdown(
             """
             <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
-              📤 Step 6: Export & Download!
+              📤 Step 6: Download!
             </p>
             """,
             unsafe_allow_html=True
@@ -343,9 +343,9 @@ def run_pipeline_main():
         buf = io.StringIO()
         final_df.to_csv(buf, index=False)
         st.download_button(
-            "📄 Download CSV",
+            "📄 Download File",
             data=buf.getvalue(),
-            file_name="final_data.csv",
+            file_name="fusion_ha.csv",
             mime="text/csv"
         )
     elif uploaded_files:
