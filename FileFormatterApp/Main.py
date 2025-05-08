@@ -3,10 +3,11 @@ import streamlit as st
 import io
 import pandas as pd
 
-"""
-User Instructions
-- To run this on my local machine via Terminal, run: streamlit run /Users/davidkang/Desktop/FormatNow/FileFormatterApp/FileFormatterApp/Main.py
-"""
+
+# User Instructions
+#- To run this on my local machine via Terminal, run: streamlit run /Users/davidkang/Desktop/FormatNow/FileFormatterApp/FileFormatterApp/Main.py
+
+
 def trim_empty(df: pd.DataFrame) -> pd.DataFrame:
     """
     Drop any rows and columns that are entirely NaN,
