@@ -35,7 +35,7 @@ def run_pipeline_main():
     # ─── Step 1: Upload one or more CSV/Excel files ──────────────────────────────
     st.markdown(
         """
-        <p style="font-size:20px; font-weight:bold; margin: 20px 0 10px 0;">
+        <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
           📑 Step 1: Upload files
         </p>
         """,
@@ -53,7 +53,7 @@ def run_pipeline_main():
     if uploaded_files:
         st.markdown(
             """
-            <p style="font-size:20px; font-weight:bold; margin: 20px 0 10px 0;">
+            <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
               ✅ Step 2: Preview uploaded raw files + top 5 records
             </p>
             """,
@@ -165,7 +165,7 @@ def run_pipeline_main():
     if df_map:
         st.markdown(
             """
-            <p style="font-size:20px; font-weight:bold; margin: 20px 0 10px 0;">
+            <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
               🔎 Step 3: Preview raw merged files. It's already deduped!
             </p>
             """,
@@ -180,7 +180,7 @@ def run_pipeline_main():
 
         st.markdown(
             """
-            <p style="font-size:20px; font-weight:bold; margin: 20px 0 10px 0;">
+            <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
               🧑‍💻 Step 4: Rename columns (if needed)
             </p>
             """,
@@ -276,7 +276,7 @@ def run_pipeline_main():
         # 6) Apply & re‑merge
         st.markdown(
             """
-            <p style="font-size:20px; font-weight:bold; margin: 20px 0 10px 0;">
+            <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
               🟢 Step 5: Click button below to implement new column names!
             </p>
             """,
@@ -329,7 +329,7 @@ def run_pipeline_main():
     if final_df is not None and not final_df.empty:
         st.markdown(
             """
-            <p style="font-size:20px; font-weight:bold; margin: 20px 0 10px 0;">
+            <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
               📤 Step 6: Export & Download!
             </p>
             """,
