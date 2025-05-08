@@ -166,7 +166,12 @@ def run_pipeline_main():
         st.markdown(
             """
             <p style="font-size:30px; font-weight:bold; margin: 20px 0 10px 0;">
-              🔎 Step 3: Preview raw merged files. It's already deduped!
+              🔎 Step 3: Preview raw merged files.
+            </p>
+            <p style="font-size:15px; margin: 10px 10px 10px 0;">
+              Please note that this simply merges all the files you uploaded into a flattened table. You will need to
+              select singular column names in Step 4 for the most effective merge (e.g., annual_rev, rev_per_year → annual_revenue).
+              The good news is that we already deduped the records!
             </p>
             """,
             unsafe_allow_html=True
