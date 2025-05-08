@@ -1,6 +1,5 @@
 pip~=25.1
 attrs~=24.3.0
-zlib~=1.2.13
 wheel~=0.45.1
 pysocks~=1.7.1
 protobuf~=5.29.3
