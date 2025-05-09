@@ -1,6 +1,5 @@
 from FileFormatterApp import FileFormatterApp
 import streamlit as st
-st.set_option("server.enableArrowSerialization", False)
 import io
 import pandas as pd
 
