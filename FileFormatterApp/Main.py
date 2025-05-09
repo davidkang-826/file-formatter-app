@@ -1,5 +1,6 @@
 from FileFormatterApp import FileFormatterApp
 import streamlit as st
+st.set_option("server.enableArrowSerialization", False)
 import io
 import pandas as pd
 
@@ -31,7 +32,7 @@ def make_column_names_unique(cols):
         else:
             new_name = col # If it's first time we're seeing the column name, we keep it.
         new_cols.append(new_name) # Add the new column name to new_cols
-        seen[col] = count + 1 # We should increment the count of this column's instance by 1
+        seen[col] = count + 1 #
     return new_cols
 
 def run_pipeline_main():
@@ -129,7 +130,6 @@ def run_pipeline_main():
                     st.warning(f"Tab `{sheet_name}` in `{fname}` is empty; skipping.")
                     continue
                 df.columns = df.iloc[0].astype(str)
-                df.columns = make_column_names_unique(df.columns)
                 df = df[1:].reset_index(drop=True)
                 if df.empty:
                     st.warning(f"Tab `{sheet_name}` in `{fname}` has no data after header promotion; skipping.")
@@ -161,7 +161,6 @@ def run_pipeline_main():
 
         # Now, promote first non-empty row to header, skip sheets with no data
         df.columns = df.iloc[0].astype(str)
-        df.columns = make_column_names_unique(df.columns)
         df = df[1:].reset_index(drop=True)
         if df.empty:
             st.warning(f"File `{fname}` has no data after header promotion; skipping.")
