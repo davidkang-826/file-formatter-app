@@ -1,5 +1,6 @@
 from FileFormatterApp import FileFormatterApp
 import streamlit as st
+st.set_option("server.enableArrowSerialization", False)
 import io
 import pandas as pd
 
@@ -19,6 +20,20 @@ def trim_empty(df: pd.DataFrame) -> pd.DataFrame:
     df = df.loc[:, df.notna().any(axis=0)]
     # 3) reset index so it starts at 0
     return df.reset_index(drop=True)
+
+def make_column_names_unique(cols):
+    seen = {} # Create a new dictionary
+    new_cols = [] # Create a new list
+
+    for col in cols: # Iterate through cols array
+        count = seen.get(col, 0) # get the count of that col. If not, then produce 0
+        if count: # Checks if the count is not zero. Or, have we seen this column before?
+            new_name = f"{col}_{count}" # Then we rename it to the column name with its count.
+        else:
+            new_name = col # If it's first time we're seeing the column name, we keep it.
+        new_cols.append(new_name) # Add the new column name to new_cols
+        seen[col] = count + 1 # We should increment the count of this column's instance by 1
+    return new_cols
 
 def run_pipeline_main():
     st.title("🐲 Fusion Ha 🟠")
@@ -115,6 +130,7 @@ def run_pipeline_main():
                     st.warning(f"Tab `{sheet_name}` in `{fname}` is empty; skipping.")
                     continue
                 df.columns = df.iloc[0].astype(str)
+                df.columns = make_column_names_unique(df.columns)
                 df = df[1:].reset_index(drop=True)
                 if df.empty:
                     st.warning(f"Tab `{sheet_name}` in `{fname}` has no data after header promotion; skipping.")
@@ -146,6 +162,7 @@ def run_pipeline_main():
 
         # Now, promote first non-empty row to header, skip sheets with no data
         df.columns = df.iloc[0].astype(str)
+        df.columns = make_column_names_unique(df.columns)
         df = df[1:].reset_index(drop=True)
         if df.empty:
             st.warning(f"File `{fname}` has no data after header promotion; skipping.")
