@@ -253,7 +253,7 @@ def run_pipeline_main():
             st.markdown(f"**Group {idx}:** {', '.join(f'`{c}`' for c in cols)}")
 
             # Build dropdown options: all raw columns + a custom option!
-            options = ["I want to customize…"] + [key] + raw_cols
+            options = ["I want to customize..."] + [key] + raw_cols
             default = new_names.get(cols[0], key)
 
             if default in options:
