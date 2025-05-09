@@ -129,6 +129,7 @@ def run_pipeline_main():
                     st.warning(f"Tab `{sheet_name}` in `{fname}` is empty; skipping.")
                     continue
                 df.columns = df.iloc[0].astype(str)
+                df.columns = make_column_names_unique(df.columns)
                 df = df[1:].reset_index(drop=True)
                 if df.empty:
                     st.warning(f"Tab `{sheet_name}` in `{fname}` has no data after header promotion; skipping.")
@@ -160,6 +161,7 @@ def run_pipeline_main():
 
         # Now, promote first non-empty row to header, skip sheets with no data
         df.columns = df.iloc[0].astype(str)
+        df.columns = make_column_names_unique(df.columns)
         df = df[1:].reset_index(drop=True)
         if df.empty:
             st.warning(f"File `{fname}` has no data after header promotion; skipping.")
